@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('/images/IMG_6742.JPG'); 
+            background-size: contain;
+         
+        }
+
+        .navbar {
+            background-color: #60686F;
+            overflow: hidden;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            height: 20vh;
+        }
+
+        .logo img {
+            width: 300px;
+            margin-right: -110px;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2em;
+        }
+
+        .nav-link:hover {
+            margin-bottom: 5px;
+            text-decoration: underline;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            margin: 0 30px;
+        }
+
+        .call-button {
+            background-color: #c9c98c;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1.2em;
+            cursor: pointer;
+            border-radius: 15px;
+            margin-right: 80px;
+            border: 2px solid white;
+            margin-bottom: 10px; /* Adjusted margin-bottom */
+        }
+
+        .faq-section {
+            margin: 0 auto;
+            max-width: 800px;
+        }
+
+        .card {
+            background: #fff;
+            color: #333;
+            margin: 7rem auto;
+            width: 90%;
+            max-width: 50rem;
+            min-height: 30rem;
+            border-radius: 2rem;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 3rem; /* Adjusted font size */
+            padding: 0.5rem; /* Adjusted padding */
+            margin-top: 5px; /* Adjusted margin-top */
+            margin-bottom: 5px; /* Adjusted margin-bottom */
+        }
+
+        .acc-container {
+            padding: 2rem 1rem; /* Adjusted padding */
+        }
+
+        .acc-btn {
+            width: 100%;
+            padding: 1.2rem 1.6rem; /* Adjusted padding */
+            font-size: 1.2rem; /* Adjusted font size */
+            cursor: pointer;
+            background: inherit;
+            border: none;
+            outline: none;
+            text-align: left;
+            transition: all 0.5s linear;
+        }
+
+        .acc-btn:after {
+            content: "\002B";
+            color: #fa8d0c;
+            float: right;
+            transition: all 0.3s linear;
+        }
+
+        .acc-btn.is-open:after {
+            content: "\2212";
+        }
+
+        .acc-btn:hover, .acc-btn.is-open {
+            color: #000;
+            font-weight: bold;
+        }
+
+        .acc-content {
+            max-height: 0;
+            color: rgba(0, 0, 0, 0.75);
+            font-size: 1rem; /* Adjusted font size */
+            margin: 0 1rem; /* Adjusted margin */
+            padding-left: 0.5rem; /* Adjusted padding */
+            overflow: hidden;
+            transition: max-height 0.3s ease-in-out;
+            border-bottom: 1px solid #ccc;
+        }
+        .footer-section {
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+            height: 20vh;
+            padding-top: 20px;
+        }
+
+        .footer {
+            position: relative;
+            width: 100%;
+            background: #60686F;
+            min-height: 100px;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .social-icon,
+        .menu {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 0;
+            flex-wrap: wrap;
+        }
+
+        .social-icon__item,
+        .menu__item {
+            list-style: none;
+        }
+
+        .social-icon__link {
+            font-size: 2rem;
+            color: #fff;
+            margin: 0 10px;
+            display: inline-block;
+            transition: 0.5s;
+        }
+
+        .social-icon__link:hover {
+            transform: translateY(-10px);
+        }
+
+        .menu__link {
+            font-size: 1.2rem;
+            color: #fff;
+            margin: 0 10px;
+            display: inline-block;
+            transition: 0.5s;
+            text-decoration: none;
+            opacity: 0.75;
+            font-weight: 300;
+        }
+
+        .menu__link:hover {
+            opacity: 1;
+        }
+
+        .footer p {
+            color: #fff;
+            margin: 15px 0 10px 0;
+            font-size: 1rem;
+            font-weight: 300;
+            text-align: center;
+        }
+
+        .wave {
+            position: absolute;
+            top: -100px;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: url("https://i.ibb.co/wQZVxxk/wave.png");
+            background-size: 1000px 100px;
+        }
+
+        .wave#wave1 {
+            z-index: 1000;
+            opacity: 1;
+            bottom: 0;
+            animation: animateWaves 4s linear infinite;
+        }
+
+        .wave#wave2 {
+            z-index: 999;
+            opacity: 0.5;
+            bottom: 10px;
+            animation: animate 4s linear infinite !important;
+        }
+
+        .wave#wave3 {
+            z-index: 1000;
+            opacity: 0.2;
+            bottom: 15px;
+            animation: animateWaves 3s linear infinite;
+        }
+
+        .wave#wave4 {
+            z-index: 999;
+            opacity: 0.7;
+            bottom: 20px;
+            animation: animate 3s linear infinite;
+        }
+
+        @keyframes animateWaves {
+            0% {
+                background-position-x: 1000px;
+            }
+            100% {
+                background-positon-x: 0px;
+            }
+        }
+
+        @keyframes animate {
+            0% {
+                background-position-x: -1000px;
+            }
+            100% {
+                background-positon-x: 0px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="navbar">
+        <div class="logo"><img src="/images/Add a subheading (1).png" alt=""></div>
+        <div class="nav-links">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="services.html" class="nav-link">Services</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+          <a href="index.html" class="nav-link">Blog</a>
+          <a href="index.html" class="nav-link">Faq</a>
+      
+        </div>
+        <button class="call-button">Call Me</button>
+      </section>
+
+
+    <section class="faq-section">
+        <main class="card">
+            <h2 class="title">FAQ</h2>
+            <div class="acc-container">
+                <button class="acc-btn">1. What services does your web development/solutions business offer?
+
+                </button>
+                <div class="acc-content">
+                    <p>
+                        We provide a wide range of services including but not limited to:
+                    </p>
+                    <ul>
+                        <li>Custom website design and development</li>
+                            <li> E-commerce solutions</li>
+                                <li> Content Management Systems (CMS) integration</li>
+                                    <li> Website maintenance and support</li>
+                                        <li> Mobile-responsive design</li>
+                                            <li>  Search Engine Optimization (SEO)</li>
+                                                <li> Web hosting and domain registration</li>
+                                                    <li> Website security audits and implementation</li>
+                    </ul>
+                </div>
+
+                <button class="acc-btn">2. How do I get started with your services?
+
+                </button>
+                <div class="acc-content">
+                    <p>
+                        Getting started is simple! Just reach out to us via our website contact form or directly through email. We'll schedule a consultation to discuss your project requirements, goals, and timeline. From there, we'll provide you with a detailed proposal outlining our recommended solutions and pricing.
+                    </p>
+                </div>
+
+                <button class="acc-btn">3. How long does it take to complete a website project?
+
+                </button>
+                <div class="acc-content">
+                    <p>
+                        The timeline for each project varies depending on its complexity, size, and the features required. We'll work closely with you to establish a realistic timeline during the consultation phase. Generally, smaller projects can be completed within a few weeks, while larger projects may take several months.
+
+
+                    </p>
+                </div>
+
+                <button class="acc-btn">4. Do you offer website maintenance services?
+
+                </button>
+                <div class="acc-content">
+                    <p>
+                        Yes, we offer website maintenance services to ensure your site remains secure, up-to-date, and performing optimally. Whether you need occasional updates or ongoing support, we have maintenance packages tailored to your needs.
+                    </p>
+                </div>
+
+                <button class="acc-btn">5. Can you redesign my existing website?
+
+                </button>
+                <div class="acc-content">
+                    <p>
+                        Yes, all websites we develop are designed to be fully responsive, ensuring optimal viewing and functionality across a wide range of devices, including smartphones, tablets, and desktop computers.
+
+
+                    </p>
+                </div>
+
+                
+                <button class="acc-btn">6. Will my website be mobile-friendly?
+
+
+
+                </button>
+                <div class="acc-content">
+                    <p>
+                        Absolutely! We specialize in website redesigns to give your online presence a fresh look and improved functionality. During the consultation, we'll discuss your goals for the redesign and provide recommendations to enhance your site's performance and user experience.
+
+
+                    </p>
+                </div>
+
+                
+                <button class="acc-btn">7. How do you ensure the security of my website?
+
+
+
+                </button>
+                <div class="acc-content">
+                    <p>
+                        Security is a top priority for us. We implement industry best practices to safeguard your website against potential threats, including regular security audits, SSL encryption, and robust firewall protection.
+
+
+                    </p>
+                </div>
+
+                
+                <button class="acc-btn">8. Can you help with website hosting and domain registration?
+
+
+
+                </button>
+                <div class="acc-content">
+                    <p>
+                        Yes, we offer website hosting services on reliable servers to ensure your site is always accessible and performing at its best. We can also assist with domain registration and management to simplify the process of establishing your online presence.
+
+
+                    </p>
+                </div>
+
+                
+                <button class="acc-btn">9. What sets your web development and solutions business apart from others?
+
+
+                </button>
+                <div class="acc-content">
+                    <p>
+                        We differentiate ourselves through our commitment to personalized service, attention to detail, and dedication to delivering high-quality solutions tailored to our clients' unique needs. Our team of experienced professionals is passionate about helping businesses succeed online, and we strive to exceed our clients' expectations every step of the way.
+
+
+
+
+
+
+                    </p>
+                </div>
+
+                
+               
+
+
+
+                <!-- Add more questions and answers as needed -->
+
+            </div>
+        </main>
+    </section>
+
+    <section class="footer-section">
+        <footer class="footer">
+          <div class="waves">
+            <div class="wave" id="wave1"></div>
+            <div class="wave" id="wave2"></div>
+            <div class="wave" id="wave3"></div>
+            <div class="wave" id="wave4"></div>
+          </div>
+          <ul class="social-icon">
+            <li class="social-icon__item"><a class="social-icon__link" href="#">
+                <ion-icon name="logo-facebook"></ion-icon>
+              </a></li>
+            <li class="social-icon__item"><a class="social-icon__link" href="#">
+                <ion-icon name="logo-twitter"></ion-icon>
+              </a></li>
+            <li class="social-icon__item"><a class="social-icon__link" href="#">
+                <ion-icon name="logo-linkedin"></ion-icon>
+              </a></li>
+            <li class="social-icon__item"><a class="social-icon__link" href="#">
+                <ion-icon name="logo-instagram"></ion-icon>
+              </a></li>
+          </ul>
+          <ul class="menu">
+            <li class="menu__item"><a class="menu__link" href="#">Home</a></li>
+            <li class="menu__item"><a class="menu__link" href="#">About</a></li>
+            <li class="menu__item"><a class="menu__link" href="#">Services</a></li>
+            <li class="menu__item"><a class="menu__link" href="#">Team</a></li>
+            <li class="menu__item"><a class="menu__link" href="#">Contact</a></li>
+      
+          </ul>
+          <p>&copy;2024 Convert Solutions | All Rights Reserved</p>
+        </footer>
+          </section>
+    
+          <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+          <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+      
+    <script>
+        const btns = document.querySelectorAll(".acc-btn");
+
+        // fn
+        function accordion() {
+            // this = the btn | icon & bg changed
+            this.classList.toggle("is-open");
+
+            // the acc-content
+            const content = this.nextElementSibling;
+
+            // IF open, close | else open
+            if (content.style.maxHeight) content.style.maxHeight = null;
+            else content.style.maxHeight = content.scrollHeight + "px";
+        }
+
+        // event
+        btns.forEach((el) => el.addEventListener("click", accordion));
+    </script>
+</body>
+</html>

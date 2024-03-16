@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f0efee;
+    }
+
+    .navbar {
+      background-color: #60686F;
+      overflow: hidden;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px;
+      height: 20vh;
+    }
+
+    .logo img{
+        width: 300px;
+        margin-right: -110px;
+    }
+
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.2em;
+    }
+
+    .nav-link:hover{
+        margin-bottom: 5px;
+text-decoration: underline;
+   }
+
+    .nav-link {
+      color: white;
+      text-decoration: none;
+      margin: 0 30px;
+    }
+
+    .call-button {
+      background-color: #c9c98c;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-size: 1.2em;
+      cursor: pointer;
+      border-radius: 15px;
+      margin-right: 80px;
+      border:2px solid white
+    }
+
+    .call-button:hover{
+        background-color: transparent;
+    }
+
+
+    .header {
+      text-align: center;
+      padding: 50px;
+    }
+
+
+
+    .circular-image img {
+      height: 300px;
+      width: 300px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 0 auto;
+      object-fit: cover;
+    }
+
+    .mission-statement {
+      text-align: center;
+      padding:0 200px;
+      font-size: 1.2em;
+      color: #333;
+    }
+
+    .image-text-section {
+      display: flex;
+      padding: 20px;
+      border: 1px solid black;
+      border-radius: 10px;
+      line-height: 1.6;
+      margin: 20px 100px;
+    }
+
+    .image-text-section p{
+        padding-left: 100px;
+    }
+
+    .image-text-section h2{
+        font-size: 2em;
+        padding-left: 100px;
+
+    }
+
+
+    .image-text-section img {
+      max-width: 40%;
+      border-radius: 10px;
+      margin-right: 100px;
+    }
+
+    .quote-section {
+        
+      text-align: center;
+      padding: 50px;
+      background-color: #60686F;
+      color: white;
+    }
+
+    .image-text-reverse-section {
+        display: flex;
+      padding: 20px;
+      border: 1px solid black;
+      border-radius: 10px;
+      line-height: 1.6;
+      margin: 20px 100px;
+    }
+
+    .image-text-reverse-section p{
+        padding-right: 100px;
+    }
+
+    .image-text-reverse-section h2{
+        font-size: 2em;
+    }
+
+    .image-text-reverse-section img {
+      max-width: 40%;
+      border-radius: 10px;
+      margin-left: 100px;
+
+    }
+
+    .four-cards-section {
+      display: flex;
+      justify-content: space-around;
+      padding: 50px;
+    }
+
+    .card {
+      width: 350px;
+      text-align: center;
+      border: 1px solid black;
+      border-radius: 10px;
+      padding: 20px;
+    }
+
+    .card img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+    }
+
+    
+.footer-section {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  height: 20vh;
+  padding-top: 200px;
+}
+
+.footer {
+  position: relative;
+  width: 100%;
+  background: #60686F;
+  min-height: 100px;
+  padding: 20px 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.social-icon,
+.menu {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+  flex-wrap: wrap;
+}
+
+.social-icon__item,
+.menu__item {
+  list-style: none;
+}
+
+.social-icon__link {
+  font-size: 2rem;
+  color: #fff;
+  margin: 0 10px;
+  display: inline-block;
+  transition: 0.5s;
+}
+.social-icon__link:hover {
+  transform: translateY(-10px);
+}
+
+.menu__link {
+  font-size: 1.2rem;
+  color: #fff;
+  margin: 0 10px;
+  display: inline-block;
+  transition: 0.5s;
+  text-decoration: none;
+  opacity: 0.75;
+  font-weight: 300;
+}
+
+.menu__link:hover {
+  opacity: 1;
+}
+
+.footer p {
+  color: #fff;
+  margin: 15px 0 10px 0;
+  font-size: 1rem;
+  font-weight: 300;
+  text-align: center;
+}
+
+.wave {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: url("https://i.ibb.co/wQZVxxk/wave.png");
+  background-size: 1000px 100px;
+}
+
+.wave#wave1 {
+  z-index: 1000;
+  opacity: 1;
+  bottom: 0;
+  animation: animateWaves 4s linear infinite;
+}
+
+.wave#wave2 {
+  z-index: 999;
+  opacity: 0.5;
+  bottom: 10px;
+  animation: animate 4s linear infinite !important;
+}
+
+.wave#wave3 {
+  z-index: 1000;
+  opacity: 0.2;
+  bottom: 15px;
+  animation: animateWaves 3s linear infinite;
+}
+
+.wave#wave4 {
+  z-index: 999;
+  opacity: 0.7;
+  bottom: 20px;
+  animation: animate 3s linear infinite;
+}
+
+@keyframes animateWaves {
+  0% {
+    background-position-x: 1000px;
+  }
+  100% {
+    background-positon-x: 0px;
+  }
+}
+
+@keyframes animate {
+  0% {
+    background-position-x: -1000px;
+  }
+  100% {
+    background-positon-x: 0px;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+    <section class="navbar">
+        <div class="logo"><img src="/images/Add a subheading (1).png" alt=""></div>
+        <div class="nav-links">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="services.html" class="nav-link">Services</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+          <a href="index.html" class="nav-link">Blog</a>
+          <a href="index.html" class="nav-link">Faq</a>
+      
+        </div>
+        <button class="call-button">Call Me</button>
+      </section>
+
+  <div class="header">
+    <div class="circular-image">
+      <img src="/images/Cover.JPG" alt="Circular Image">
+    </div>
+    <div class="mission-statement">
+      <p>""Empowering Success, Enabling Growth: At Convert Solutions, we are dedicated to crafting innovative and tailored solutions that transcend expectations. Rooted in a commitment to excellence, we place our customers at the heart of everything we do. With a relentless pursuit of quality and a passion for technology, we strive to empower our clients, fostering enduring relationships and driving unparalleled success. Your vision is our mission, and together, we transform possibilities into realities, always valuing the trust our customers place in us."
+        <br>
+        -Paul Meisner
+      </p>
+    </div>
+  </div>
+
+  <div class="image-text-section">
+    <img src="/images/bearded-young-man.jpg" alt="Left Image">
+    <div>
+      <h2>Get to Know Me</h2>
+      <p>Hallo! I'm Paul Meisner, a tech enthusiast born and raised in Germany. My fascination with technology ignited at a young age, propelling me into the captivating world of coding and software engineering.
+
+        Following my education, I delved into the realm of Software Engineering and Information Systems at the University of Eau Claire in Wisconsin, driven by a thirst for knowledge and a desire to make a meaningful impact in the tech industry.
+        
+        Throughout my journey, I've had the privilege of collaborating on diverse projects, further fueling my passion for innovation and problem-solving. Constantly pushing boundaries, I'm dedicated to exploring new possibilities and embracing every opportunity for growth.
+        
+        Beyond the digital landscape, I enjoy venturing into the great outdoors, discovering new destinations, and indulging in quiet moments with a good book and a cup of coffee.</p>
+    </div>
+  </div>
+
+  <div class="quote-section">
+    <p>"Intentionality is the heartbeat of our every action, the driving force behind our commitment to excellence."</p>
+  </div>
+
+  <div class="image-text-reverse-section">
+    <div>
+      <h2>About Convert Solutions</h2>
+      <p>At Convert Solutions, our existence revolves around one core principle: the customer. We are here not just because of them, but for them. Our journey began with a simple yet profound realization – to truly serve our customers and meet their evolving needs, we needed the flexibility and freedom that only our own business could provide.
+
+        In today's rapidly advancing technological landscape, change can often seem daunting. Yet, at Convert Solutions, we see these advancements as opportunities to empower our customers and enhance their experiences. We firmly believe in harnessing technology for the betterment of our clients, leveraging its potential to drive positive outcomes and meaningful connections.
+        
+        Every aspect of what we do is guided by intentionality. From the solutions we develop to the messages we convey, each decision is carefully considered with our customers' best interests at heart. We understand that our success is intricately linked with theirs, and it is this shared journey towards growth and excellence that motivates us every day.
+        
+        Join us at Convert Solutions as we navigate the ever-changing landscape of technology, driven by a steadfast commitment to our customers and a vision of a brighter, more connected future.</p>
+    </div>
+    <img src="/images/bearded-young-man.jpg" alt="Right Image">
+  </div>
+
+  <div class="four-cards-section">
+    <div class="card">
+      <img src="/images/web solutions icon.svg" alt="Card 1 Image">
+      <h3>Consultation</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+    </div>
+
+    <div class="card">
+        <img src="/images/web solutions icon.svg" alt="Card 1 Image">
+        <h3>Design</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+      </div>
+
+      <div class="card">
+        <img src="/images/web solutions icon.svg" alt="Card 1 Image">
+        <h3>Deveolop</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. .</p>
+      </div>
+
+      <div class="card">
+        <img src="/images/web solutions icon.svg" alt="Card 1 Image">
+        <h3>Deploy</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+      </div>
+    <!-- Repeat the card structure for the other three cards -->
+  </div>
+
+  <section class="footer-section">
+    <footer class="footer">
+      <div class="waves">
+        <div class="wave" id="wave1"></div>
+        <div class="wave" id="wave2"></div>
+        <div class="wave" id="wave3"></div>
+        <div class="wave" id="wave4"></div>
+      </div>
+      <ul class="social-icon">
+        <li class="social-icon__item"><a class="social-icon__link" href="#">
+            <ion-icon name="logo-facebook"></ion-icon>
+          </a></li>
+        <li class="social-icon__item"><a class="social-icon__link" href="#">
+            <ion-icon name="logo-twitter"></ion-icon>
+          </a></li>
+        <li class="social-icon__item"><a class="social-icon__link" href="#">
+            <ion-icon name="logo-linkedin"></ion-icon>
+          </a></li>
+        <li class="social-icon__item"><a class="social-icon__link" href="#">
+            <ion-icon name="logo-instagram"></ion-icon>
+          </a></li>
+      </ul>
+      <ul class="menu">
+        <li class="menu__item"><a class="menu__link" href="#">Home</a></li>
+        <li class="menu__item"><a class="menu__link" href="#">About</a></li>
+        <li class="menu__item"><a class="menu__link" href="#">Services</a></li>
+        <li class="menu__item"><a class="menu__link" href="#">Team</a></li>
+        <li class="menu__item"><a class="menu__link" href="#">Contact</a></li>
+  
+      </ul>
+      <p>&copy;2024 Convert Solutions | All Rights Reserved</p>
+    </footer>
+      </section>
+
+      <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+      <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  
+
+</body>
+</html>

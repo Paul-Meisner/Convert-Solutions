@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <style>
+         body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f0efee;
+    }
+
+    .navbar {
+      background-color: #60686F;
+      overflow: hidden;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px;
+      height: 20vh;
+    }
+
+    .logo img{
+        width: 300px;
+        margin-right: -110px;
+    }
+
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.2em;
+    }
+
+    .nav-link:hover{
+        margin-bottom: 5px;
+text-decoration: underline;
+   }
+
+    .nav-link {
+      color: white;
+      text-decoration: none;
+      margin: 0 30px;
+    }
+
+    .call-button {
+      background-color: #c9c98c;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-size: 1.2em;
+      cursor: pointer;
+      border-radius: 15px;
+      margin-right: 80px;
+      border:2px solid white
+    }
+
+    .call-button:hover{
+        background-color: transparent;
+    }
+
+
+   
+
+
+        #form-container {
+            width: 40%;
+            margin: 0 auto; /* Center the form horizontally */
+        }
+
+        #fs-frm {
+            width: 100%;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+        }
+
+        /* Reset styles */
+        #fs-frm input,
+        #fs-frm select,
+        #fs-frm textarea,
+        #fs-frm fieldset,
+        #fs-frm optgroup,
+        #fs-frm label,
+        #fs-frm #card-element:disabled {
+            font-family: inherit;
+            font-size: 100%;
+            color: inherit;
+            border: none;
+            border-radius: 0;
+            display: block;
+            width: 95%;
+            padding: 0;
+            margin: 0;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+        }
+
+        #fs-frm label,
+        #fs-frm legend,
+        #fs-frm ::placeholder {
+            font-size: .825rem;
+            margin-bottom: .5rem;
+            padding-top: .2rem;
+            display: flex;
+            align-items: baseline;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        #fs-frm input,
+        #fs-frm select,
+        #fs-frm textarea,
+        #fs-frm #card-element {
+            border: 1px solid rgba(0,0,0,0.2);
+            background-color: rgba(255,255,255,0.9);
+            padding: .75em 1rem;
+            margin-bottom: 1.5rem;
+            width: 100%;
+        }
+
+        #fs-frm input:focus,
+        #fs-frm select:focus,
+        #fs-frm textarea:focus {
+            background-color: white;
+            outline-style: solid;
+            outline-width: thin;
+            outline-color: gray;
+            outline-offset: -1px;
+        }
+
+        #fs-frm [type="text"],
+        #fs-frm [type="email"] {
+            width: 100%;
+        }
+
+        #fs-frm [type="button"],
+        #fs-frm [type="submit"],
+        #fs-frm [type="reset"] {
+            width: auto;
+            cursor: pointer;
+            -webkit-appearance: button;
+            -moz-appearance: button;
+            appearance: button;
+        }
+
+        #fs-frm [type="button"]:focus,
+        #fs-frm [type="submit"]:focus,
+        #fs-frm [type="reset"]:focus {
+            outline: none;
+        }
+
+        #fs-frm [type="submit"],
+        #fs-frm [type="reset"] {
+            margin-bottom: 0;
+        }
+
+        #fs-frm select {
+            text-transform: none;
+        }
+
+        #fs-frm [type="checkbox"] {
+            -webkit-appearance: checkbox;
+            -moz-appearance: checkbox;
+            appearance: checkbox;
+            display: inline-block;
+            width: auto;
+            margin: 0 .5em 0 0 !important;
+        }
+
+        #fs-frm [type="radio"] {
+            -webkit-appearance: radio;
+            -moz-appearance: radio;
+            appearance: radio;
+        }
+
+        /* Address, locale */
+        #fs-frm fieldset.locale input[name="city"],
+        #fs-frm fieldset.locale select[name="state"],
+        #fs-frm fieldset.locale input[name="postal-code"] {
+            display: inline;
+        }
+
+        #fs-frm fieldset.locale input[name="city"] {
+            width: 52%;
+        }
+
+        #fs-frm fieldset.locale select[name="state"],
+        #fs-frm fieldset.locale input[name="postal-code"] {
+            width: 20%;
+        }
+
+        #fs-frm fieldset.locale input[name="city"],
+        #fs-frm fieldset.locale select[name="state"] {
+            margin-right: 3%;
+        }
+
+        .intro-section {
+            text-align: center;
+            padding: 20px;
+
+        }
+
+        .intro-text {
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 2;
+
+        }
+
+        
+
+        .intro-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.intro-section ul li i{
+  padding-right: 10px;
+}
+
+
+           /* Style for the image section */
+           .image-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+        
+        .image-section .row {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            width: 60%;
+        }
+        
+        .image-section .row .icon-container {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            margin: 10px;
+            font-size: 3em; /* Adjust icon size */
+            background-color: #ffffff; /* Background color for the circular container */
+            border-radius: 50%;
+            border: 1px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.3s;
+        }
+
+        .image-section .row .icon-container:hover {
+            background-color: transparent; /* Change background color on hover */
+        }
+
+        .image-section .row .icon-container:hover .hover-text {
+            display: flex; /* Show hover text on hover */
+        }
+
+        .image-section .row .icon-container:hover .icon {
+            display: none; /* Hide icon on hover */
+        }
+
+        .image-section .row .hover-text {
+            display: none;
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            font-size: 18px;
+            color: #000000; /* Hover text color */
+            justify-content: center;
+            align-items: center;
+        }
+        
+        /* Add media query for responsiveness */
+        @media (max-width: 768px) {
+            .image-section .row .icon-container {
+                max-width: 45%; /* Adjust as needed */
+            }
+        }
+
+
+        .footer-section {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  height: 20vh;
+  padding-top: 200px;
+}
+
+.footer {
+  position: relative;
+  width: 100%;
+  background: #60686F;
+  min-height: 100px;
+  padding: 20px 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.social-icon,
+.menu {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+  flex-wrap: wrap;
+}
+
+.social-icon__item,
+.menu__item {
+  list-style: none;
+}
+
+.social-icon__link {
+  font-size: 2rem;
+  color: #fff;
+  margin: 0 10px;
+  display: inline-block;
+  transition: 0.5s;
+}
+.social-icon__link:hover {
+  transform: translateY(-10px);
+}
+
+.menu__link {
+  font-size: 1.2rem;
+  color: #fff;
+  margin: 0 10px;
+  display: inline-block;
+  transition: 0.5s;
+  text-decoration: none;
+  opacity: 0.75;
+  font-weight: 300;
+}
+
+.menu__link:hover {
+  opacity: 1;
+}
+
+.footer p {
+  color: #fff;
+  margin: 15px 0 10px 0;
+  font-size: 1rem;
+  font-weight: 300;
+  text-align: center;
+}
+
+.wave {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: url("https://i.ibb.co/wQZVxxk/wave.png");
+  background-size: 1000px 100px;
+}
+
+.wave#wave1 {
+  z-index: 1000;
+  opacity: 1;
+  bottom: 0;
+  animation: animateWaves 4s linear infinite;
+}
+
+.wave#wave2 {
+  z-index: 999;
+  opacity: 0.5;
+  bottom: 10px;
+  animation: animate 4s linear infinite !important;
+}
+
+.wave#wave3 {
+  z-index: 1000;
+  opacity: 0.2;
+  bottom: 15px;
+  animation: animateWaves 3s linear infinite;
+}
+
+.wave#wave4 {
+  z-index: 999;
+  opacity: 0.7;
+  bottom: 20px;
+  animation: animate 3s linear infinite;
+}
+
+@keyframes animateWaves {
+  0% {
+    background-position-x: 1000px;
+  }
+  100% {
+    background-positon-x: 0px;
+  }
+}
+
+@keyframes animate {
+  0% {
+    background-position-x: -1000px;
+  }
+  100% {
+    background-positon-x: 0px;
+  }
+}
+    </style>
+</head>
+<body>
+
+    <section class="navbar">
+        <div class="logo"><img src="/images/Add a subheading (1).png" alt=""></div>
+        <div class="nav-links">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="services.html" class="nav-link">Services</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+          <a href="index.html" class="nav-link">Blog</a>
+          <a href="index.html" class="nav-link">Faq</a>
+      
+        </div>
+        <button class="call-button">Call Me</button>
+      </section>
+      <section class="intro-section">
+        <h1>Work with me!</h1>
+        <p class="intro-text">Ready to take your online presence to the next level?<br>
+            Whether you're looking to build a stunning new website, revamp your existing one, or need ongoing support and maintenance, we're here to help. Get in touch with us today to discuss your project requirements and let's turn your vision into reality.</p>
+</section>
+
+    <section id="form-container">
+        <form id="fs-frm" name="simple-contact-form" accept-charset="utf-8" action="https://formspree.io/f/xzbngzjj" method="post">
+            <fieldset id="fs-frm-inputs">
+                <label for="full-name">Full Name</label>
+                <input type="text" name="name" id="full-name" placeholder="First and Last" required="">
+                <label for="email-address">Email Address</label>
+                <input type="email" name="_replyto" id="email-address" placeholder="email@domain.tld" required="">
+                <label for="message">Message</label>
+                <textarea rows="5" name="message" id="message" placeholder="Aenean lacinia bibendum nulla sed consectetur. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec ullamcorper nulla non metus auctor fringilla nullam quis risus." required=""></textarea>
+                <input type="hidden" name="_subject" id="email-subject" value="Contact Form Submission">
+            </fieldset>
+            <input type="submit" value="Submit">
+        </form>
+    </section>
+
+    
+<section class="image-section">
+  <!-- First row with three icons -->
+  <div class="row">
+      <div class="icon-container">
+        <i class="far fa-envelope icon"></i>
+          <div class="hover-text">paul.meisner.cs <br> @gmail.com</div>
+      </div>
+      <div class="icon-container">
+        <i class="fas fa-phone icon"></i>
+          <div class="hover-text">(715) 497-3251</div>
+      </div>
+      <div class="icon-container">
+        <i class="far fa-clock icon"></i>
+          <div class="hover-text">Closed Sundays</div>
+      </div>
+  </div>
+  <!-- Second row with two icons -->
+
+</section>
+
+
+    <section class="footer-section">
+        <footer class="footer">
+          <div class="waves">
+            <div class="wave" id="wave1"></div>
+            <div class="wave" id="wave2"></div>
+            <div class="wave" id="wave3"></div>
+            <div class="wave" id="wave4"></div>
+          </div>
+          <ul class="social-icon">
+            <li class="social-icon__item"><a class="social-icon__link" href="#">
+                <ion-icon name="logo-facebook"></ion-icon>
+              </a></li>
+            <li class="social-icon__item"><a class="social-icon__link" href="#">
+                <ion-icon name="logo-twitter"></ion-icon>
+              </a></li>
+            <li class="social-icon__item"><a class="social-icon__link" href="#">
+                <ion-icon name="logo-linkedin"></ion-icon>
+              </a></li>
+            <li class="social-icon__item"><a class="social-icon__link" href="#">
+                <ion-icon name="logo-instagram"></ion-icon>
+              </a></li>
+          </ul>
+          <ul class="menu">
+            <li class="menu__item"><a class="menu__link" href="#">Home</a></li>
+            <li class="menu__item"><a class="menu__link" href="#">About</a></li>
+            <li class="menu__item"><a class="menu__link" href="#">Services</a></li>
+            <li class="menu__item"><a class="menu__link" href="#">Team</a></li>
+            <li class="menu__item"><a class="menu__link" href="#">Contact</a></li>
+      
+          </ul>
+          <p>&copy;2024 Convert Solutions | All Rights Reserved</p>
+        </footer>
+          </section>
+    
+          <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+          <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+          <script src="https://kit.fontawesome.com/2a13339fdb.js" crossorigin="anonymous"></script>      
+</body>
+</html>

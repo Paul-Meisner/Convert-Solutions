@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f0efee;
+    }
+
+    .navbar {
+      background-color: #60686F;
+      overflow: hidden;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px;
+      height: 20vh;
+    }
+
+    .logo img{
+        width: 300px;
+        margin-right: -110px;
+    }
+
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.2em;
+    }
+
+    .nav-link:hover{
+        margin-bottom: 5px;
+text-decoration: underline;
+   }
+
+    .nav-link {
+      color: white;
+      text-decoration: none;
+      margin: 0 30px;
+    }
+
+    .call-button {
+      background-color: #c9c98c;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-size: 1.2em;
+      cursor: pointer;
+      border-radius: 15px;
+      margin-right: 80px;
+      border:2px solid white
+    }
+
+    .call-button:hover{
+        background-color: transparent;
+    }
+
+    .cover-section {
+      position: relative;
+      text-align: center;
+      color: #f0efee;
+      background: url('/images/IMG_7991.jpg') bottom/cover no-repeat;
+      height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .cover-header {
+      font-size: 3em;
+      margin-top: -5em;
+      margin-bottom: 20px;
+    }
+
+    .cover-buttons {
+      margin-top: 20px;
+    }
+
+    .cover-button {
+        background-color: #c9c98c;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-size: 1.2em;
+      cursor: pointer;
+      border-radius: 15px;
+      border:2px solid white;
+      margin: 0 10px;
+    }
+
+    .cover-button:hover{
+        background-color: transparent;
+    }
+
+    .card-section {
+      display: flex;
+      justify-content: space-around;
+      padding: 100px;
+    }
+
+    .card {
+      width: 350px;
+      height: 450px;
+      perspective: 1000px;
+      margin: 10px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    }
+
+    .card-inner {
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.6s;
+    }
+
+    .card:hover .card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .card-front,
+    .card-back {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      backface-visibility: hidden;
+      line-height: 1.6;
+    }
+
+    .card-front {
+
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Align content at the bottom */
+  align-items: center; /* Center horizontally */
+}
+
+.card-front-1 {
+  background-image: url('/images/macbook-air-on-desk.jpg');
+}
+
+.card-front-2 {
+  background-image: url('/images/sign-says-online-is-better-with-a-small-shopping-cart.jpg');
+}
+
+.card-front-3 {
+  background-image: url('/images/campaign-creators-pypeCEaJeZY-unsplash.jpg');
+}
+
+.card-front-4 {
+  background-image: url('/images/blueprint-tools.jpg');
+}
+.card-front h2 {
+  color: white;
+  width: 100%;
+  text-align: center;
+}
+
+    .card-back {
+      background-color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transform: rotateY(180deg);
+    }
+
+    .card-back-header {
+      font-size: 1.5em;
+      text-align: center;
+    }
+
+    .card-back-paragraph {
+      text-align: center;
+      padding:0 10px;
+      margin-top: -10px;
+    }
+
+    .card-back-button {
+        background-color: #c9c98c;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      font-size: 1em;
+      cursor: pointer;
+      margin-bottom: 20px;
+      border-radius: 15px;
+      border:2px solid white;
+      margin-top: 10px;
+
+
+
+    }
+
+    .card-back-button:hover{
+        background-color: transparent;
+        border: 2px solid black;
+        color:black;
+    }
+
+    .text-background-section {
+      background: url('/images/indoor-brick-wall-texture.jpg') center/cover no-repeat;
+      background-attachment: fixed;
+      text-align: center;
+      padding: 100px 0;
+    }
+
+    .text-background {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 1.6em;
+      color: white;
+    }
+
+    .mission-buton{
+        background-color: #c9c98c;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      font-size: .8em;
+      cursor: pointer;
+      border-radius: 15px;
+      border:2px solid white;
+      margin: 10px 10px;
+    }
+
+    .mission-button:hover{
+        background-color: transparent;
+    }
+
+
+        .project-section {
+      display: flex;
+      justify-content: space-around;
+      padding: 100px;
+    }
+
+    .project-card {
+      position: relative;
+      width: 500px;
+      height: 400px;
+      margin: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    }
+
+    .project-inner {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      transition: transform 0.6s;
+    }
+
+    .project-card:hover .project-inner {
+      transform: translateY(-100%);
+    }
+
+    .project-front,
+    .project-back {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      backface-visibility: hidden;
+    }
+
+    .project-front {
+      background-image: url('/images/macbook-air-on-desk.jpg'); /* Replace with your actual project image */
+      background-size: cover;
+    }
+
+    
+
+    .project-back {
+      background-color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transform: translateY(100%);
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    .project-header {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+
+    }
+
+    .project-back-paragraph {
+      margin-bottom: 10px;
+      padding: 0 20px;
+    }
+
+    .project-back-button {
+        background-color: #c9c98c;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      font-size: 1em;
+      cursor: pointer;
+      margin-bottom: 20px;
+      border-radius: 15px;
+      border:2px solid white;
+      margin-top: 10px;
+
+
+
+    }
+
+
+    .call-button:hover{
+        background-color: transparent;
+    }
+    .about-section {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 100px;
+      background-color: #f0efee;
+    }
+
+    .about-image {
+      width: 600px;
+      height: 500px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-right: 20px;
+      border-radius: 10px;
+      border: 1px solid
+    }
+
+    .about-content {
+      max-width: 800px;
+    }
+
+    .about-header {
+      font-size: 1.8em;
+      margin-bottom: 20px;
+    }
+
+    .about-text {
+      font-size: 1.2em;
+      line-height: 1.4;
+    }
+
+    .about-button {
+        background-color: #c9c98c;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-size: 1.2em;
+      cursor: pointer;
+      margin-bottom: 20px;
+      border-radius: 15px;
+      border:2px solid black;
+      margin-top: 10px;
+
+
+
+    }
+
+
+    .about-button:hover{
+        background-color: transparent;
+        color: black;
+    }
+
+    @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css);
+        @import url(https://fonts.googleapis.com/css?family=Raleway:400,800);
+
+        .testimonial-section {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-flow: wrap;
+          margin: 0;
+          height: 50vh;
+          
+        }
+
+        .testimonial-card {
+          font-family: 'Raleway', Arial, sans-serif;
+          position: relative;
+          overflow: hidden;
+          margin: 20px;
+          min-width: 310px;
+          max-width: 370px;
+          width: 100%;
+          color: #333;
+          text-align: left;
+          box-shadow: none !important;
+        }
+
+        .testimonial-card * {
+          -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+          -webkit-transition: all 0.35s cubic-bezier(0.25, 0.5, 0.5, 0.9);
+          transition: all 0.35s cubic-bezier(0.25, 0.5, 0.5, 0.9);
+        }
+
+        .testimonial-card img {
+          max-width: 100%;
+          vertical-align: middle;
+          height: 90px;
+          width: 90px;
+          border-radius: 50%;
+          margin: 40px 0 0 10px;
+        }
+
+        .testimonial-card blockquote {
+          display: block;
+          border-radius: 8px;
+          position: relative;
+          background-color: #fafafa;
+          padding: 25px 50px 30px 50px;
+          font-size: 1em;
+          font-weight: 500;
+          margin: 0;
+          line-height: 1.6em;
+          font-style: italic;
+        }
+
+        .testimonial-card blockquote:before,
+        .testimonial-card blockquote:after {
+          font-family: 'FontAwesome';
+          content: "\201C";
+          position: absolute;
+          font-size: 50px;
+          opacity: 0.3;
+          font-style: normal;
+        }
+
+        .testimonial-card blockquote:before {
+          top: 25px;
+          left: 20px;
+        }
+
+        .testimonial-card blockquote:after {
+          content: "\201D";
+          right: 20px;
+          bottom: 0;
+        }
+
+        .testimonial-card .arrow {
+          top: 100%;
+          width: 0;
+          height: 0;
+          border-left: 0 solid transparent;
+          border-right: 25px solid transparent;
+          border-top: 25px solid #fafafa;
+          margin: 0;
+          position: absolute;
+        }
+
+        .testimonial-card .author {
+          position: absolute;
+          bottom: 45px;
+          padding: 0 10px 0 120px;
+          margin: 0;
+          text-transform: uppercase;
+          color: #ffffff;
+          -webkit-transform: translateY(50%);
+          transform: translateY(50%);
+        }
+
+        .testimonial-card .author h5 {
+          opacity: 0.8;
+          margin: 0;
+          font-weight: 800;
+        }
+
+        .testimonial-card .author h5 span {
+          font-weight: 400;
+          text-transform: none;
+          padding-left: 5px;
+          position: relative;
+        }
+
+        .testimonial-card .author h5 span:before {
+          content: "\2605 \2605 \2605 \2605 \2605"; /* Unicode character for a filled star */
+          color: #FFD700; /* Golden color for stars */
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+
+        
+        .blue-section {
+      background-color: #474e53;
+      text-align: center;
+      padding: 100px;
+      color: white;
+      height: 30vh;
+    }
+
+    .blue-section h2 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+
+    .blue-section p {
+      font-size: 1.4em;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+
+    .blue-button {
+      background-color: #c9c98c;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-size: 1.2em;
+      cursor: pointer;
+      border-radius: 15px;
+      border:2px solid white
+    }
+
+    .blue-button:hover{
+        background-color: transparent;
+    }
+    .contact-card-section {
+      display: flex;
+      justify-content: center;
+      margin-top: -150px; /* Overlapping the blue background slightly */
+    }
+
+    .contact-card {
+      width: 20vw;
+      height:30vh;
+      background-color: white;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 40px;
+      text-align: center;
+    }
+
+    .contact-card img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+
+    /* Adjust the subheader and paragraphs styles as needed */
+    .contact-card h4 {
+      margin: 0;
+      color: #333;
+    }
+
+    .contact-card p {
+      margin: 10px 0;
+      color: #555;
+    }
+
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+
+
+
+.footer-section {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  height: 20vh;
+  padding-top: 200px;
+}
+
+.footer {
+  position: relative;
+  width: 100%;
+  background: #3586ff;
+  min-height: 100px;
+  padding: 20px 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.social-icon,
+.menu {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+  flex-wrap: wrap;
+}
+
+.social-icon__item,
+.menu__item {
+  list-style: none;
+}
+
+.social-icon__link {
+  font-size: 2rem;
+  color: #fff;
+  margin: 0 10px;
+  display: inline-block;
+  transition: 0.5s;
+}
+.social-icon__link:hover {
+  transform: translateY(-10px);
+}
+
+.menu__link {
+  font-size: 1.2rem;
+  color: #fff;
+  margin: 0 10px;
+  display: inline-block;
+  transition: 0.5s;
+  text-decoration: none;
+  opacity: 0.75;
+  font-weight: 300;
+}
+
+.menu__link:hover {
+  opacity: 1;
+}
+
+.footer p {
+  color: #fff;
+  margin: 15px 0 10px 0;
+  font-size: 1rem;
+  font-weight: 300;
+  text-align: center;
+}
+
+.wave {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: url("https://i.ibb.co/wQZVxxk/wave.png");
+  background-size: 1000px 100px;
+}
+
+.wave#wave1 {
+  z-index: 1000;
+  opacity: 1;
+  bottom: 0;
+  animation: animateWaves 4s linear infinite;
+}
+
+.wave#wave2 {
+  z-index: 999;
+  opacity: 0.5;
+  bottom: 10px;
+  animation: animate 4s linear infinite !important;
+}
+
+.wave#wave3 {
+  z-index: 1000;
+  opacity: 0.2;
+  bottom: 15px;
+  animation: animateWaves 3s linear infinite;
+}
+
+.wave#wave4 {
+  z-index: 999;
+  opacity: 0.7;
+  bottom: 20px;
+  animation: animate 3s linear infinite;
+}
+
+@keyframes animateWaves {
+  0% {
+    background-position-x: 1000px;
+  }
+  100% {
+    background-positon-x: 0px;
+  }
+}
+
+@keyframes animate {
+  0% {
+    background-position-x: -1000px;
+  }
+  100% {
+    background-positon-x: 0px;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+<section class="navbar">
+  <div class="logo"><img src="/images/Add a subheading (1).png" alt=""></div>
+  <div class="nav-links">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="about.html" class="nav-link">About</a>
+    <a href="services.html" class="nav-link">Services</a>
+    <a href="contact.html" class="nav-link">Contact</a>
+    <a href="index.html" class="nav-link">Blog</a>
+    <a href="index.html" class="nav-link">Faq</a>
+
+  </div>
+  <button class="call-button">Call Me</button>
+</section>
+
+<section class="cover-section">
+  <h1 class="cover-header">We optimize, You Thrive <br> Convert Solutions
+    </h1>
+  <div class="cover-buttons">
+    <button class="cover-button">Learn More</button>
+    <button class="cover-button">Contact Us</button>
+  </div>
+</section>
+
+
+<section class="about-section">
+    <img class="about-image" src="/images/Cover.JPG" alt="About Image">
+    <div class="about-content">
+      <h2 class="about-header">Meet Paul, Founder & Ceo of Convert Solutions!</h2>
+      <p class="about-text">
+        Greetings! I'm Paul Meisner, a software engineer and information systems enthusiast originally from Germany. My journey led me to Eau Claire, Wisconsin, where I earned my degree, and later, to the picturesque landscapes of Colorado, where I served as a missionary for 15 months.
+      </p>
+      <p class="about-text">
+        My passion lies in leveraging technology to create meaningful solutions. With a foundation in software engineering and a diverse set of experiences, I bring a unique blend of skills to every project. From my roots in Germany to the heartland of Wisconsin and the inspiring landscapes of Colorado, my journey has shaped me into a professional who values innovation and community.
+      </p>
+
+      <p class="about-text">
+        I believe in technology's power to connect, inspire, and improve lives. Trust, integrity, and collaboration are at the core of my work. Join me on this exciting intersection of cutting-edge solutions and a genuine commitment to making a positive impact.
+    </p>
+    <button class="about-button">Work With Me</button>
+    </div>
+  </section>
+
+<section class="card-section">
+  <div class="card">
+    <div class="card-inner">
+        <div class="card-front card-front-1">
+
+        <h2>Web Devlopment</h2>
+      </div>
+      <div class="card-back">
+        <h2 class="card-back-header">Web Devlopment</h2>
+        <p class="card-back-paragraph">Experience the art of digital transformation with our Web Development service. As a solo entrepreneur, I specialize in crafting bespoke websites that seamlessly blend aesthetics and functionality. From sleek business sites to dynamic web applications, I bring your digital vision to life. Elevate your online presence and stay ahead in the digital realm with our tailored and innovative web development solutions..</p>
+        <button class="card-back-button">Learn More</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-inner">
+        <div class="card-front card-front-2">
+            <h2>E-Commerce</h2>
+      </div>
+      <div class="card-back">
+        <h2 class="card-back-header">E-Commerce</h2>
+        <p class="card-back-paragraph">Unlock the potential of online commerce with our E-Commerce expertise. As a solo entrepreneur, I'm dedicated to creating engaging and secure online stores tailored to your unique business. From intuitive user interfaces to robust payment systems, our E-Commerce solutions ensure a seamless shopping experience for your customers. Let's transform your products into a captivating online marketplace that drives growth and customer satisfaction</p>
+        <button class="card-back-button">Learn More</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-inner">
+        <div class="card-front card-front-3">
+            <h2>SEO-Optimization</h2>
+      </div>
+      <div class="card-back">
+        <h2 class="card-back-header">SEO-Optimization</h2>
+        <p class="card-back-paragraph">Elevate your online visibility and reach new heights with our SEO Optimization services. As a one-person team, I specialize in crafting tailored strategies to enhance your website's search engine ranking. From keyword optimization to content enhancement, trust me to optimize your digital presence and drive organic traffic. Let's make your website stand out in search results and ensure it reaches the right audience effectively..</p>
+        <button class="card-back-button">Learn More</button>
+      </div>
+    </div>
+</div>
+
+
+  <div class="card">
+    <div class="card-inner">
+        <div class="card-front card-front-4">
+            <h2>Maintenance</h2>
+
+      </div>
+      <div class="card-back">
+        <h2 class="card-back-header">Maintenance</h2>
+        <p class="card-back-paragraph">"Ensure the seamless performance and longevity of your digital assets with our Maintenance services. As a solo expert, I offer dedicated support to keep your website running smoothly. From regular updates and security checks to troubleshooting and performance optimization, I've got you covered. Experience worry-free digital presence with our meticulous and reliable maintenance solutions."</p>
+        <button class="card-back-button">Learn More</button>
+      </div>
+    </div>
+  </div>
+
+  
+
+  <!-- Repeat the card structure for the other three cards -->
+
+</section>
+
+
+
+<section class="text-background-section">
+  <div class="text-background">
+    "Our mission is to provide exceptional services and create innovative solutions that exceed our clients' expectations." <br> <span style="font-size: .8em ;"> - Paul Meisner </span>
+    <br>
+    <button class="mission-buton">Work With Me</button>
+  </div>
+</section>
+
+
+<section class="project-section">
+    <div class="project-card">
+      <div class="project-inner">
+        <div class="project-front">
+        </div>
+        <div class="project-back">
+          <h2 class="project-header">Flight Foods LLC</h2>
+          <p class="project-back-paragraph">Flight Foods LLC is a bespoke e-commerce platform designed for a distinguished Catholic supplement company. Meticulously crafted using Shopify, this website serves as a seamless digital storefront for individuals seeking high-quality dietary supplements aligned with their Catholic lifestyle. The platform not only showcases a diverse range of meticulously curated products but also prioritizes a user-friendly shopping experience, enhancing convenience and accessibility for customers.</p>
+          <button class="project-back-button">Learn More</button>
+        </div>
+      </div>
+    </div>
+  
+    <div class="project-card">
+      <div class="project-inner">
+        <div class="project-front">
+        </div>
+        <div class="project-back">
+          <h2 class="project-header">SharonKCoaching</h2>
+          <p class="project-back-paragraph">SharonKCoaching's digital presence comes to life through a purposeful WordPress website designed to reflect the essence of her role as a Catholic Life Coach. This platform serves as an online hub for individuals seeking guidance and support in aligning their life goals with their Catholic values. From intuitive navigation to visually compelling design elements, the website harmoniously blends functionality with inspiration, embodying the philosophy and offerings of SharonKCoaching.</p>
+          <button class="project-back-button">Learn More</button>
+        </div>
+      </div>
+    </div>
+  
+    <div class="project-card">
+      <div class="project-inner">
+        <div class="project-front">
+        </div>
+        <div class="project-back">
+          <h2 class="project-header">Convert Solutions</h2>
+          <p class="project-back-paragraph">My personal website stands as a testament to my passion and proficiency in web solutions and design. Crafted using a blend of HTML, CSS, and JavaScript, this platform showcases my diverse skill set in creating visually appealing, user-friendly, and technically robust websites. Serving as both a portfolio and a testament to my capabilities, the website reflects my commitment to delivering innovative and effective web solutions.</p>
+          <button class="project-back-button">Learn More</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="testimonial-section">
+    <div class="testimonial-card">
+        <blockquote>You know sometimes when I'm talking, my words can't keep up with my thoughts... I wonder why we think faster than we speak. Hobbes: Probably so we can think twice.
+          <div class="arrow"></div>
+        </blockquote>
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sq-sample3.jpg" alt="sq-sample3" />
+        <div class="author">
+          <h5>Sharon Murphy - SharonKCoaching<br><span></span></h5>
+        </div>
+    </div>
+
+    <div class="testimonial-card hover">
+        <blockquote>Thank you. before I begin, I'd like everyone to notice that my report is in a professional, clear plastic binder...When a report looks this good, you know it'll get an A. That's a tip kids. Write it down.
+          <div class="arrow"></div>
+        </blockquote>
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sq-sample27.jpg" alt="sq-sample27" />
+        <div class="author">
+          <h5>Thomas Lahart - Flight Foods <br><span></span></h5>
+        </div>
+    </div>
+
+    <div class="testimonial-card">
+        <blockquote>My behaviour is addictive functioning in a disease process of toxic co-dependency. I need holistic healing and wellness before I'll accept any responsibility for my actions.
+          <div class="arrow"></div>
+        </blockquote>
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sq-sample17.jpg" alt="sq-sample17" />
+        <div class="author">
+          <h5>Abby Meisner - Dignify Catholic <br><span></span></h5>
+        </div>
+    </div>
+</section>
+
+
+<section class="blue-section">
+    <h2>Work With Me</h2>
+    <p>Let's Transform Ideas into Reality Together. Reach out and let's discuss how we can bring your vision to life.<br> Your success starts with a simple message or call – I'm here for you.</p>
+    <button class="blue-button">Contact Me</button>
+</section>
+  
+  <section class="contact-card-section">
+    <!-- Card 1 -->
+    <div class="contact-card">
+      <img src="/images/antique-typewriter.jpg" alt="Card Image 1">
+      <h4>Write Me!</h4>
+      <p>Feel free to reach out! Your thoughts matter. Drop me an email, and let's start a conversation that brings ideas to life.</p>
+      <p>paul.meisner.cs@gmail.com</p>
+    </div>
+  
+    <!-- Card 2 -->
+    <div class="contact-card">
+      <img src="/images/telephone-booth-in-london-england.jpg" alt="Card Image 2">
+      <h4>Call Me!</h4>
+      <p>Ready to chat? Your questions and ideas are just a call away. Let's connect and turn possibilities into reality!</p>
+      <p>(715) 497-3251</p>
+    </div>
+  </section>
+
+
+  <section class="footer-section">
+    <footer class="footer">
+      <div class="waves">
+        <div class="wave" id="wave1"></div>
+        <div class="wave" id="wave2"></div>
+        <div class="wave" id="wave3"></div>
+        <div class="wave" id="wave4"></div>
+      </div>
+      <ul class="social-icon">
+        <li class="social-icon__item"><a class="social-icon__link" href="#">
+            <ion-icon name="logo-facebook"></ion-icon>
+          </a></li>
+        <li class="social-icon__item"><a class="social-icon__link" href="#">
+            <ion-icon name="logo-twitter"></ion-icon>
+          </a></li>
+        <li class="social-icon__item"><a class="social-icon__link" href="#">
+            <ion-icon name="logo-linkedin"></ion-icon>
+          </a></li>
+        <li class="social-icon__item"><a class="social-icon__link" href="#">
+            <ion-icon name="logo-instagram"></ion-icon>
+          </a></li>
+      </ul>
+      <ul class="menu">
+        <li class="menu__item"><a class="menu__link" href="#">Home</a></li>
+        <li class="menu__item"><a class="menu__link" href="#">About</a></li>
+        <li class="menu__item"><a class="menu__link" href="#">Services</a></li>
+        <li class="menu__item"><a class="menu__link" href="#">Team</a></li>
+        <li class="menu__item"><a class="menu__link" href="#">Contact</a></li>
+  
+      </ul>
+      <p>&copy;2024 Convert Solutions | All Rights Reserved</p>
+    </footer>
+      </section>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+</html>
